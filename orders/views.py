@@ -15,5 +15,5 @@ class OrderViewSet(ModelViewSet):
         response = super().create(request, *args, **kwargs)
         email_thread = EmailThread(response.data, settings.DEFAULT_FROM_EMAIL)
         email_thread.start()
-        email_thread.join()
+        #email_thread.join()
         return response
