@@ -1,0 +1,16 @@
+{% autoescape off %}
+Hello, {{ first_name }} {{ last_name }}
+
+Congratulations on your successful purchase with Stemgon!
+
+
+If you have not paid for this order, click the link below to pay. If payment is not processed within 4 hour(s), the order will be cancelled automatically.
+
+{{ link }}
+
+If you did not make this request, you can simply ignore this email.
+
+Sincerely,
+The Stemgon Team
+
+{% endautoescape %}

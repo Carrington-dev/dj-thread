@@ -1,9 +1,9 @@
-
+from decouple import config
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-yt%417#qakz#k7xsdj_nio_y54j6y@3q+vl#fneax4qzq-x)(!'
+SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
@@ -38,7 +38,7 @@ ROOT_URLCONF = 'threadweb.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [ "./templates" ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,3 +89,14 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GRAPPELLI_ADMIN_TITLE = "Dial360 Inc"
+
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = config("EMAIL_HOST")
+EMAIL_PORT = config("EMAIL_PORT")
+EMAIL_HOST_USER = config("EMAIL_HOST_USER")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
+EMAIL_USE_TLS = config("EMAIL_USE_TLS")
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL")
+DEFAULT_FROM_ADMIN = config("DEFAULT_FROM_ADMIN")
